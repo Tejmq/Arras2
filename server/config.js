@@ -1,71 +1,70 @@
-servers: [
-    {
-        share_client_server: true, // ✅ ONLY THIS ONE
+module.exports = {
+    version: 'v2.0.11.3',
+    devBuild: true,
 
-        host: 'localhost:3001',
-        port: 3001,
-        id: 'la',
-        region: "Local",
-        gamemode: ['tdm'],
-        player_cap: 180,
-        featured: false,
-        unlisted: true,
-        private: true,
+    main_menu: 'index.html',
+    host: process.env.RENDER_EXTERNAL_URL || 'https://arras-vpzf.onrender.com',
+    port: process.env.PORT || 3000,
 
-        properties: {
-            teams: 3,
-            bot_cap: 150
+    visible_list_interval: 250,
+    startup_logs: true,
+    load_all_mockups: false,
+
+    servers: [
+        {
+            share_client_server: true,
+
+            host: '0.0.0.0',
+            port: process.env.PORT || 3000,
+
+            id: 'main',
+            region: "Local",
+            gamemode: ['sandbox'],   // <- keep ONE mode only
+            player_cap: 180,
+            featured: false,
+            unlisted: false,
+            private: false,
+
+            properties: {
+                teams: 4,
+                bot_cap: 0
+            }
         }
-    },
-    {
-        share_client_server: false, // ❌ changed
+    ],
 
-        host: 'localhost:3002',
-        port: 3002,
-        id: 'lb',
-        region: "Local",
-        gamemode: ['retrograde'],
-        player_cap: 80,
-        featured: false,
-        unlisted: true,
-        private: true,
+    allow_ACAO: false,
+    map_tile_width: 420,
+    map_tile_height: 420,
 
-        properties: {
-            teams: 4,
-            bot_cap: 16
-        }
-    },
-    {
-        share_client_server: false, // ❌ changed
+    spawn_message: "You have spawned!",
+    token_message: "Be respectful.",
 
-        host: 'localhost:3003',
-        port: 3003,
-        id: 'lx',
-        region: "Local",
-        gamemode: ['nexus'],
-        player_cap: 80,
-        featured: false,
-        unlisted: true,
-        private: true,
+    chat_message_duration: 15000,
+    popup_message_duration: 10000,
+    sanitize_chat_input: true,
 
-        properties: {
-            teams: 4,
-            bot_cap: 0
-        }
-    },
-    {
-        share_client_server: false, // ❌ changed
+    game_speed: 1,
+    run_speed: 1.5,
 
-        host: 'localhost:3099',
-        port: 3099,
-        id: 'lz',
-        region: "Local",
-        gamemode: ['sandbox'],
-        player_cap: 16,
-        featured: false,
-        unlisted: false,
-        private: false,
+    level_cap: 45,
+    skill_cap: 9,
+    tier_cap: 17,
 
-        properties: {}
-    }
-]
+    bot_cap: 0,
+    spawn_class: 'basic',
+
+    enable_food: true,
+
+    classic_food: false,
+
+    enable_bosses: false,
+
+    team_weights: {},
+
+    gamemode_name_prefixes: [],
+    arena_shape: 'rect',
+    arms_race: true,
+    mode: 'ffa',
+    teams: 4,
+    room_setup: ['room_siege_blitz'],
+};
