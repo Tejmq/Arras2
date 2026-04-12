@@ -77,7 +77,8 @@ module.exports = {
                 },
                 server_travel: [
                     {
-                        ip: process.env.RENDER_EXTERNAL_URL || 'arras-vpzf.onrender.com', // destination server host, don't add "https://" or any slashes to it
+                        ip: (process.env.RENDER_EXTERNAL_URL || 'https://arras-vpzf.onrender.com')
+                            .replace(/^https?:\/\//, ''), // destination server host, don't add "https://" or any slashes to it
                         portal_properties: {
                             spawn_chance: 3, // chance for a portal to spawn somewhere in the map each loop iteration (higher = lower chances, lower = higher chance)
                             color: 'red', // portal color
