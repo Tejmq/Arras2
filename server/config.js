@@ -15,7 +15,7 @@ module.exports = {
 
     servers: [ // Make sure to change the host, port and id between servers!
         {
-            share_client_server: false, // Only one server at a time can have this enabled.
+            share_client_server: true, // Only one server at a time can have this enabled.
             // The above is required if your VM (the machine that hosts the website stuff) doesn't support multi-ports and forces everything through the main server.
             // This also overrides the below host and port settings to be identical to the main server's host/port (by default, 3000).
 
@@ -37,7 +37,7 @@ module.exports = {
             }
         },
         {
-            share_client_server: false, // Only one server at a time can have this enabled.
+            share_client_server: true, // Only one server at a time can have this enabled.
             // The above is required if your VM (the machine that hosts the website stuff) doesn't support multi-ports and forces everything through the main server.
             // This also overrides the below host and port settings to be identical to the main server's host/port (by default, 3000).
 
@@ -77,7 +77,7 @@ module.exports = {
                 },
                 server_travel: [
                     {
-                        ip: 'localhost:3003', // destination server host, don't add "https://" or any slashes to it
+                        ip: process.env.RENDER_EXTERNAL_URL || 'arras-vpzf.onrender.com', // destination server host, don't add "https://" or any slashes to it
                         portal_properties: {
                             spawn_chance: 3, // chance for a portal to spawn somewhere in the map each loop iteration (higher = lower chances, lower = higher chance)
                             color: 'red', // portal color
@@ -87,7 +87,7 @@ module.exports = {
             }
         },
         {
-            share_client_server: false, // Only one server at a time can have this enabled.
+            share_client_server: true, // Only one server at a time can have this enabled.
             // The above is required if your VM (the machine that hosts the website stuff) doesn't support multi-ports and forces everything through the main server.
             // This also overrides the below host and port settings to be identical to the main server's host/port (by default, 3000).
 
@@ -110,7 +110,7 @@ module.exports = {
             }
         },
         {
-            share_client_server: false, // Only one server at a time can have this enabled.
+            share_client_server: true, // Only one server at a time can have this enabled.
             // The above is required if your VM (the machine that hosts the website stuff) doesn't support multi-ports and forces everything through the main server.
             // This also overrides the below host and port settings to be identical to the main server's host/port (by default, 3000).
 
