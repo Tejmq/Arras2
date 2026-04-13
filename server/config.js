@@ -21,15 +21,15 @@ module.exports = {
 
             host: 'https://arras-vpzf.onrender.com', // Server host location.
             port: 3001, // The port on the server.
-            id: 'la', // (<host>/#<id>)
+            id: 'ass', // (<host>/#<id>)
 
             region: "Local", // The region the server is on.
             gamemode: ['tdm'], // The selected gamemode.
             player_cap: 80, // Not including bots. Set to 0 to disable.
 
             featured: false, // Whether the server is featured or not.
-            unlisted: true, // Whether the server shows up in the server list (if its id isn't in the url).
-            private: true, // Whether the server requires a privileged token to join (except through server travel).
+            unlisted: false, // Whether the server shows up in the server list (if its id isn't in the url).
+            private: false, // Whether the server requires a privileged token to join (except through server travel).
 
             properties: { // This overrides settings in the config.js file, assuming the selected gamemode doesn't also override it.
                 teams: 4,
