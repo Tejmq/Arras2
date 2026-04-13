@@ -1,11 +1,11 @@
 module.exports = {
     // Open Source Arras
     version: 'v2.0.11.4', // The current OSA version. Changing this will likely confuse addons.
-    devBuild: false, // Whether this is marked as a development build.
+    devBuild: true, // Whether this is marked as a development build.
 
     // Client
     main_menu: 'index.html', // Where the main menu is located (in the /public folder).
-    host: 'https://arras-vpzf.onrender.com', // Game server domain. If the host is 'localhost:NUMBER', the NUMBER must be the port setting.
+    host: 'localhost:3000', // Game server domain. If the host is 'localhost:NUMBER', the NUMBER must be the port setting.
     port: 3000, // Which port to run the web server on.
 
     // Server
@@ -19,7 +19,7 @@ module.exports = {
             // The above is required if your VM (the machine that hosts the website stuff) doesn't support multi-ports and forces everything through the main server.
             // This also overrides the below host and port settings to be identical to the main server's host/port (by default, 3000).
 
-            host: 'localhost:3001', // Server host location.
+            host: 'https://arras-vpzf.onrender.com', // Server host location.
             port: 3001, // The port on the server.
             id: 'la', // (<host>/#<id>)
 
