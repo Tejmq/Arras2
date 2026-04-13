@@ -15,25 +15,25 @@ module.exports = {
 
     servers: [
     {
-        share_client_server: true,
+    share_client_server: true,
 
-        host: '0.0.0.0',
-        port: process.env.PORT || 3000,
+    host: 'arras-vpzf.onrender.com',
+    port: process.env.PORT || 3000,
 
-        id: 'help',
-        region: "Local",
-        gamemode: ['tdm'],
-        player_cap: 80,
+    id: 'main',
+    region: "Local",
+    gamemode: ['tdm'],
+    player_cap: 80,
 
-        featured: false,
-        unlisted: false,
-        private: false,
+    featured: false,
+    unlisted: false,
+    private: false,
 
-        properties: {
-            teams: 4,
-            bot_cap: 40
-        }
+    properties: {
+        teams: 4,
+        bot_cap: 40
     }
+}
 ],
     // Web Server
     allow_ACAO: false, // Access-Control-Allow-Origin, allows any server/client to access data from the WebServer.
