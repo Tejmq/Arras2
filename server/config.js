@@ -1,40 +1,138 @@
 module.exports = {
     // Open Source Arras
-    version: 'v2.0.11.4', // The current OSA version. Changing this will likely confuse addons.
+    version: 'Something Something!!1', // The current OSA version. Changing this will likely confuse addons.
     devBuild: true, // Whether this is marked as a development build.
 
     // Client
     main_menu: 'index.html', // Where the main menu is located (in the /public folder).
-    host: '0.0.0.0',
-    port: process.env.PORT || 3000,
+    host: 'arras-vpzf.onrender.com', // Game server domain. If the host is 'localhost:NUMBER', the NUMBER must be the port setting.
+    port: 3000, // Which port to run the web server on.
 
     // Server
     visible_list_interval: 250, // How often to update the list of the entities that players can see. Has effects of when entities are activated.
     startup_logs: true, // Enable startup logs and log speed loop warnings in the terminal
     load_all_mockups: false, // Set to true if you want every mockup to be loaded when the server starts. May noticeably slow down server startup.
 
-    servers: [
-    {
-    share_client_server: true,
+    servers: [ // Make sure to change the host, port and id between servers!
+        {
+            share_client_server: false, // Only one server at a time can have this enabled.
+            // The above is required if your VM (the machine that hosts the website stuff) doesn't support multi-ports and forces everything through the main server.
+            // This also overrides the below host and port settings to be identical to the main server's host/port (by default, 3000).
 
-    host: 'arras-vpzf.onrender.com',
-    port: process.env.PORT || 3000,
+            host: 'localhost:3001', // Server host location.
+            port: 3001, // The port on the server.
+            id: 'la', // (<host>/#<id>)
 
-    id: 'main',
-    region: "Local",
-    gamemode: ['tdm'],
-    player_cap: 80,
+            region: "Local", // The region the server is on.
+            gamemode: ['siege_citadel'], // The selected gamemode.
+            player_cap: 180, // Not including bots. Set to 0 to disable.
 
-    featured: false,
-    unlisted: false,
-    private: false,
+            featured: false, // Whether the server is featured or not.
+            unlisted: true, // Whether the server shows up in the server list (if its id isn't in the url).
+            private: true, // Whether the server requires a privileged token to join (except through server travel).
 
-    properties: {
-        teams: 4,
-        bot_cap: 40
-    }
-}
-],
+            properties: { // This overrides settings in the config.js file, assuming the selected gamemode doesn't also override it.
+                teams: 3,
+                bot_cap: 25
+            }
+        },
+        {
+            share_client_server: false, // Only one server at a time can have this enabled.
+            // The above is required if your VM (the machine that hosts the website stuff) doesn't support multi-ports and forces everything through the main server.
+            // This also overrides the below host and port settings to be identical to the main server's host/port (by default, 3000).
+
+            host: 'localhost:3002', // Server host location.
+            port: 3002, // The port on the server.
+            id: 'lb', // (<host>/#<id>)
+
+            region: "Local", // The region the server is on.
+            gamemode: ['retrograde'], // The selected gamemode.
+            player_cap: 80, // Not including bots. Set to 0 to disable.
+
+            featured: false, // Whether the server is featured or not.
+            unlisted: true, // Whether the server shows up in the server list (if its id isn't in the url).
+            private: true, // Whether the server requires a privileged token to join (except through server travel).
+
+            properties: { // This overrides settings in the config.js file, assuming the selected gamemode doesn't also override it.
+                teams: 4,
+                bot_cap: 16,
+                server_travel_properties: {
+                    loop_interval: 30_000, // how often the portal loop executes in seconds
+                    portals: 3, // amount of portals to spawn
+                },
+                daily_tank: {
+                    tank: 'basic',
+                    tier: 3,
+                    ads: false,
+                    ad_sources: [
+                        {
+                            file: 'testadvideo.mp4',
+                            use_regular_ad_size: true
+                        },
+                        {
+                            file: 'testadimage.png',
+                            use_regular_ad_size: true
+                        }
+                    ]
+                },
+                server_travel: [
+                    {
+                        ip: 'localhost:3003', // destination server host, don't add "https://" or any slashes to it
+                        portal_properties: {
+                            spawn_chance: 3, // chance for a portal to spawn somewhere in the map each loop iteration (higher = lower chances, lower = higher chance)
+                            color: 'red', // portal color
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            share_client_server: false, // Only one server at a time can have this enabled.
+            // The above is required if your VM (the machine that hosts the website stuff) doesn't support multi-ports and forces everything through the main server.
+            // This also overrides the below host and port settings to be identical to the main server's host/port (by default, 3000).
+
+            host: 'localhost:3003', // Server host location.
+            port: 3003, // The port on the server.
+            id: 'lx', // (<host>/#<id>)
+
+            region: "Local", // The region the server is on.
+            gamemode: ['nexus'], // The selected gamemode.
+            player_cap: 80, // Not including bots. Set to 0 to disable.
+
+            featured: false, // Whether the server is featured or not.
+            unlisted: true, // Whether the server shows up in the server list (if its id isn't in the url).
+            private: true, // Whether the server requires a privileged token to join (except through server travel).
+
+            properties: { // This overrides settings in the config.js file, assuming the selected gamemode doesn't also override it.
+                teams: 4,
+                bot_cap: 0
+                //allow_server_travel: true
+            }
+        },
+        {
+            share_client_server: false, // Only one server at a time can have this enabled.
+            // The above is required if your VM (the machine that hosts the website stuff) doesn't support multi-ports and forces everything through the main server.
+            // This also overrides the below host and port settings to be identical to the main server's host/port (by default, 3000).
+
+            host: 'localhost:3099', // Server host location.
+            port: 3099, // The port on the server.
+            id: 'lz', // (<host>/#<id>)
+
+            region: "Local", // The region the server is on.
+            gamemode: ['sandbox'], // The selected gamemode.
+            player_cap: 16, // Not including bots. Set to 0 to disable.
+
+            featured: false, // Whether the server is featured or not.
+            unlisted: false, // Whether the server shows up in the server list (if its id isn't in the url).
+            private: false, // Whether the server requires a privileged token to join (except through server travel).
+
+            properties: { // This overrides settings in the config.js file, assuming the selected gamemode doesn't also override it.
+                //teams: 4,
+                //bot_cap: 0
+            }
+        },
+    ],
+
     // Web Server
     allow_ACAO: false, // Access-Control-Allow-Origin, allows any server/client to access data from the WebServer.
 
@@ -178,8 +276,8 @@ module.exports = {
     ],
 
     // Bosses
-    enable_bosses: true,
-    boss_spawn_cooldown: 260, // The delay (in seconds) between boss spawns.
+    enable_bosses: false,
+    boss_spawn_cooldown: 1, // The delay (in seconds) between boss spawns.
     boss_spawn_delay: 6, // The delay (in seconds) between the boss spawn being announced and the boss(es) actually spawning.
     boss_types: [
             {
@@ -196,16 +294,16 @@ module.exports = {
             amount: [2, 2, 1], chance: 1, nameType: 'a',
             message: 'A strange trembling...',
         },
-        /*{
+        {
             bosses: ['paladin', 'freyja', 'zaphkiel', 'nyx', 'theia'],
-            amount: [1], chance: 0.01,
+            amount: [5], chance: 0.51,
             message: 'The world tremors as the celestials are reborn anew!',
         },
         {
             bosses: ['julius', 'genghis', 'napoleon'],
             amount: [1], chance: 0.1,
             message: 'The darkness arrives as the realms are torn apart!',
-        }*/
+        }
     ],
 
     // How many members a team can have in comparison to an unweighed team.
@@ -222,7 +320,7 @@ module.exports = {
     // DO NOT change them here unless you know what you are doing!
     gamemode_name_prefixes: [],
     arena_shape: 'rect',
-    arms_race: false,
+    arms_race: true,
     blackout: false,
     clan_wars: false,
     diep: false,
@@ -242,5 +340,5 @@ module.exports = {
     use_limited_waves: false,
 
     // Room setup
-    room_setup: ['room_default'],
+    room_setup: ['room_siege_blitz'],
 }
