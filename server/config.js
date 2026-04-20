@@ -5,7 +5,7 @@ module.exports = {
 
     // Client
     main_menu: 'index.html', // Where the main menu is located (in the /public folder).
-    host: 'arras-vpzf.onrender.com', // Game server domain. If the host is 'localhost:NUMBER', the NUMBER must be the port setting.
+    host: 'arras2-production.up.railway.app', // Game server domain. If the host is 'localhost:NUMBER', the NUMBER must be the port setting.
     port: 3000, // Which port to run the web server on.
 
     // Server
@@ -19,7 +19,7 @@ module.exports = {
             // The above is required if your VM (the machine that hosts the website stuff) doesn't support multi-ports and forces everything through the main server.
             // This also overrides the below host and port settings to be identical to the main server's host/port (by default, 3000).
 
-            host: 'arras-vpzf.onrender.com', // Server host location.
+            host: 'arras2-production.up.railway.app', // Server host location.
             port: 3001, // The port on the server.
             id: 'la', // (<host>/#<id>)
 
